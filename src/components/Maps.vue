@@ -1,53 +1,14 @@
 <template>
   <div>
-    <section class="nav">
-      <div class="container">
-        <div class="nav-left">
-          <router-link to="/">
-            <img src="../assets/CITY-LOGO.png" alt="Baltimore Logo">
-          </router-link>
-          <router-link to="/">
-            <span class="title is-1 is-hidden-mobile"> City of Baltimore:</span>
-            <span class="title is-1">
-              <em>
-                <small> Maps Gallery</small>
-              </em>
-            </span>
-          </router-link>
-        </div>
-      </div>
-    </section>
     <div class="container" style="margin-top:20px;">
-      <p class="content is-medium">City of Baltimore: Maps Gallery is a collection of web maps for the community of City of Baltimore. Find the specific map by searching below.</p>
+      <p class="content is-medium">Find the specific map by searching below.</p>
       <div class="columns">
-        <SearchBox v-model="filterQuery" placeholder="Find a Map" />
+        <search-box v-model="filterQuery" placeholder="Find a Map" />
       </div>
       <div class="cards">
         <app-map-item v-for='map in displayedMaps' :key='map.id' :mapInfo='map'></app-map-item>
       </div>
     </div>
-    <footer class="footer">
-      <div class="container">
-        <p class="subtitle is-1">EGIS Maps</p>
-        <p class="content">For more maps, web mapping applications, and GIS data visit the
-          <a href="http://moit.baltimorecity.gov/geographic-information-services"> City of Baltimore EGIS </a> Website,
-          <a href="https://data.baltimorecity.gov/">Open Baltimore</a>, or
-          <a href="http://cityview.baltimorecity.gov/">CityView</a>. Also, you can stay up to date by following us on
-          <a href="https://www.facebook.com/Baltimore-City-Enterprise-GIS-Services-211559173332/"> Facebook
-            <span class="icon">
-              <i class="fa fa-facebook"> </i>
-            </span>
-          </a> and
-          <a href="https://twitter.com/BaltCityGIS"> Twitter
-            <span class="icon">
-              <i class="fa fa-twitter"></i>
-            </span>
-          </a>. Email us for additional maps and comments on:
-          <a href="mailto:gis@baltimorecity.gov">gis@baltimorecity.gov</a>
-        </p>
-        <p>© 2017 City of Baltimore</p>
-      </div>
-    </footer>
   </div>
 </template>
 <script>
@@ -65,7 +26,7 @@ export default {
   },
   components: {
     "app-map-item": mapItem,
-    SearchBox
+    "search-box": SearchBox
   },
   computed: {
     displayedMaps() {
